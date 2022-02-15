@@ -1,4 +1,4 @@
-import SEILogo from "./SEILogo";
+import SEILogo from "seilogo";
 
 const svgWidth = window.innerWidth;
 const svgHeight = window.innerHeight;
