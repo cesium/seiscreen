@@ -6,8 +6,14 @@ const widthSEILogo = 240.8;
 const heightSEILogo = 157.4;
 
 export default function SEILogo({ width, height }) {
-  const [{x, xSpeed}, setX] = useState({x: getRandomNumber(0, width - widthSEILogo),xSpeed: 1});
-  const [{y, ySpeed}, setY] = useState({y: getRandomNumber(0, height - heightSEILogo),ySpeed: 1});
+  const [{ x, xSpeed }, setX] = useState({
+    x: getRandomNumber(0, width - widthSEILogo),
+    xSpeed: 1,
+  });
+  const [{ y, ySpeed }, setY] = useState({
+    y: getRandomNumber(0, height - heightSEILogo),
+    ySpeed: 1,
+  });
 
   const [r, setR] = useState(getRandomNumber(100, 256));
   const [b, setB] = useState(getRandomNumber(100, 256));
@@ -24,22 +30,22 @@ export default function SEILogo({ width, height }) {
   }
 
   function moveDVDLogo() {
-    setX(({x: old, xSpeed: oldspeed}) => {
+    setX(({ x: old, xSpeed: oldspeed }) => {
       if (old + widthSEILogo >= width || old <= 0) {
         setRandomColors();
-        return {x: old - oldspeed, xSpeed: -oldspeed}
+        return { x: old - oldspeed, xSpeed: -oldspeed };
       }
 
-      return {x: old + oldspeed, xSpeed: oldspeed}
+      return { x: old + oldspeed, xSpeed: oldspeed };
     });
 
-    setY(({y: old, ySpeed: oldspeed}) => {
+    setY(({ y: old, ySpeed: oldspeed }) => {
       if (old + heightSEILogo >= height || old <= 0) {
         setRandomColors();
-        return {y: old - oldspeed, ySpeed: -oldspeed}
+        return { y: old - oldspeed, ySpeed: -oldspeed };
       }
 
-      return {y: old + oldspeed, ySpeed: oldspeed}
+      return { y: old + oldspeed, ySpeed: oldspeed };
     });
   }
 
